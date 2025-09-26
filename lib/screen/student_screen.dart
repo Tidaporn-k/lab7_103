@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import '../model/student.dart';
+import '../screen/edit_student_screen.dart';
 
 class StudentScreen extends StatefulWidget {
   static const routeName = '/';
@@ -84,7 +85,18 @@ class _StudentScreenState extends State<StudentScreen> {
                                 trailing: Wrap(
                                   children: [
                                     IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                EditStudentScreen(
+                                                  student:
+                                                      snapshot.data![index],
+                                                ),
+                                          ),
+                                        );
+                                      },
                                       icon: Icon(Icons.edit),
                                     ),
                                     IconButton(
